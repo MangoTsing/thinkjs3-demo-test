@@ -1,0 +1,6 @@
+数据库除了remark全是not null
+
+
+npm install 安装必要的包 
+
+npm start 启动服务器监听 8360端口
