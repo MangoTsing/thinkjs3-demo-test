@@ -1,0 +1,187 @@
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		
+		<style>
+			*{
+				margin:0px;
+				padding:0px;
+				
+			}
+			#wrap{
+				position:relative;
+				width:995px;
+				height:540px;
+				margin:80px auto;
+
+			}
+			#wrap ul li{
+				position:absolute;
+				list-style:none;
+			}
+			#wrap ul li.center{
+				left:23%;
+				top:0px;
+				width:540px;
+				height:360px;
+				z-index:10;
+				opacity:1;
+			}
+			#wrap ul li.second{
+				left:60px;
+				top:30px;
+				width:480px;
+				height:316px;
+				z-index:9;
+				opacity:0.9;
+			}
+			#wrap ul li.eight{
+				left:456px;
+				top:30px;
+				width:480px;
+				height:316px;
+				z-index:9;
+				opacity:0.9;
+			}
+			#wrap ul li.third{
+				left:0px;
+				top:110px;
+				width:320px;
+				height:216px;
+				z-index:8;
+				opacity:0.9;
+			}
+			#wrap ul li.seven{
+				left:675px;
+				top:110px;
+				width:320px;
+				height:216px;
+				z-index:8;
+				opacity:0.9;
+			}
+			#wrap ul li.four{
+				left:160px;
+				top:185px;
+				width:170px;
+				height:114px;
+				z-index:7;
+				opacity:0.9;
+			}
+			#wrap ul li.six{
+				left:726px;
+				top:185px;
+				width:170px;
+				height:114px;
+				z-index:7;
+				opacity:0.9;
+			}
+			#wrap ul li.five{
+				left:464px;
+				top:215px;
+				width:110px;
+				height:72px;
+				z-index:5;
+				opacity:0.9;
+			}
+			#wrap div.left,#wrap div.right{
+				position:absolute;
+				top:35%;
+				width:45px;
+				height:45px;
+				z-index:11;
+			}
+			#wrap div.left{
+				left:0px;
+				background:url("images/left.png");
+			}
+			#wrap div.right{
+				right:0px;
+				background:url("images/right.png");
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<ul>
+				<li class="center">
+					<img src="images/1.jpg" width="100%" height="100%">
+				</li>
+				<li class="second">
+					<img src="images/2.jpg" width="100%" height="100%">
+				</li>
+				<li class="third">
+					<img src="images/3.jpg" width="100%" height="100%">
+				</li>
+				<li class="four">
+					<img src="images/4.jpg" width="100%" height="100%">
+				</li>
+				<li class="five">
+					<img src="images/5.jpg" width="100%" height="100%">
+				</li>
+				<li class="six">
+					<img src="images/6.jpg" width="100%" height="100%">
+				</li>
+				<li class="seven">
+					<img src="images/7.jpg" width="100%" height="100%">
+				</li>
+				<li class="eight">
+					<img src="images/8.jpg" width="100%" height="100%">
+				</li>
+			</ul>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script>
+			
+			$(".left").click(function(){
+				move(false);
+			});
+			$(".right").click(function(){
+				move(true);
+			});
+			
+			function move(direction){
+				
+				var arrW = [],
+					arrH = [],
+					arrL = [],
+					arrT = [],
+					arrZ = [],
+					arrO = [];
+				$("#wrap ul li").each(function(i){
+					arrW[i] = $(this).css("width");
+					arrH[i] = $(this).css("height");
+					arrL[i] = $(this).css("left");
+					arrT[i] = $(this).css("top");
+					arrZ[i] = $(this).css("z-index");
+					arrO[i] = $(this).css("opacity");
+				});
+
+				$("#wrap ul li").each(function(i){
+					var index;
+					if (direction)
+					{
+						index = i-1;
+						if(index < 0)index = 7;
+					}else{
+						index = i+1;
+						if(index > 7 )index = 0;
+					}
+					$(this).css("z-index",arrZ[index]);
+					$(this).animate({
+						width : arrW[index],
+						height : arrH[index],
+						left : arrL[index],
+						top : arrT[index],
+						opacity : arrO[index]
+					},1000);
+				})
+			}
+		</script>
+	</body>
+	
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/ajax.js"></script>
+	
+<style type="text/css">
+	#wrap{
+		position:relative;
+		width:995px;
+		height:540px;
+		margin:40px auto;
+	}
+	#wrap h2{
+		writing-mode: vertical-lr;
+		color: white;
+		font-size: 40px;
+		font-family: 'microsoft yahei';
+		letter-spacing: 10px;
+	}
+	.box{
+		position: absolute;
+		left: 42%;
+		top:0;
+		width: 100%;
+		height:100%;
+		float: left;
+		font-family: 'microsoft yahei';
+		color: #fff;
+	}
+	.box  input[type="text"],.box  select,.box  input[type="submit"]{
+		border-radius: 10px;
+		width: 200px;
+		height: 25px;
+	}
+	.box  input[type="submit"]{
+		background:rgba(0,127,5,1);
+		color: #fff;
+		font-weight: bold;
+		font-family: 'microsoft yahei';
+	}
+	#onameWarning,#onumWarning{
+		display: none;
+		height: 25px;
+		width: 150px;
+		border-radius: 25px;
+		border:3px red solid;
+	}
+
+</style>
+		
+</head>
+<body>
+<div id="wrap">
+<h2>加入我们<hr></h2>
+<form action="/login/add" method="get" class="box">
+<input type="hidden" name="id" value="0">
+<input type="hidden" name="gender" value="man">
+<label><p>姓名</p><input type="text" name="name"  placeholder="Your Full Name" id="oname"></label>
+
+<label><p>年龄</p><input type="text" name="age"  placeholder="Your age" id="oname"></label>
+<div id="onameWarning">请输入正确的姓名</div>
+<label><p>学号</p><input type="text" name="remark"  placeholder="输入8位学号" id="onum"></label>
+<div id="onumWarning">请输入正确的学号</div>
+<label><p>手机号码</p><input type="text" name="phonenumber"  placeholder="输入11位手机号码" id="otel"></label>
+<div></div>
+<label>
+<p>专业班级</p>
+<select name="classname">
+<option value="信管1班" name="信管1班">信管1班</option>
+<option value="信管2班" name="信管2班">信管2班</option>
+<option value="电商班" name="电商班"'>电商班</option>
+<option value="档案班" name="档案班"'>档案班</option>
+<option value="编出班" name="编出班">编出班</option>
+<option value="图管班" name="图管班">图管班</option>
+</select>
+</label>
+<label>
+<p>笔试科目(可多选)</p>
+<input name="address" type="checkbox" value="前端" />html
+<input name="address" type="checkbox" value="后端" />C语言</label><br><br>
+<label><input id="sub" type="submit" name="sub" value="提交"></label>
+</form>
+</div>
+<script type="text/javascript">
+	/*var osub=document.getElementById('sub');
+	osub.onclick=function(){
+		ajax('get','/WqeJ/NumberRegite',''function(){
+		
+		});
+	}*/
+	// window.onload = function(){
+	// 	var Oname = document.getElementById('oname');
+	// 	var Onum = document.getElementById('onum');
+	// 	var Otel = document.getElementById('otel');
+	// 	var OnameWarning = document.getElementById('onameWarning');
+	// 	var OnumWarning = document.getElementById('onumWarning');
+	// 	Oname.onblur = function(){
+	// 		ajax('get','/NumberRegite','',function(data){
+	// 		var d = JSON.parse(data);
+	// 		if(d.error1="[姓名不能为空]"){
+	// 			OnameWarning.style.display = 'block';
+				
+	// 			ajax('get','','',function(data){
+	// 				var d = JSON.parse(data);
+	// 				if(d.error1){
+	// 					//error1存在的显示
+	// 				}else{
+	// 					//error1消失的显示
+	// 				}
+	// 			});
+	// 		}else{
+	// 			// alert('姓名为空');
+	// 			OnameWarning.style.display = 'none';
+	// 			return true;
+	// 		};});
+	// 	};
+	// 	Onum.onblur = function(){
+	// 		ajax('get','/NumberRegite','',function(data){
+	// 			var d = JSON.parse(data);
+	// 		if(d.error2="[学号有问题]"){
+	// 		OnumWarning.style.display = 'block';
+			
+	// 		}else {
+	// 			OnumWarning.style.display = 'none'
+	// 		};
+	// 	});
+	// 	};
+	// 	// Otel.onblur = function(){
+	// 	// 	if(this.value){
+				
+			
+	// 	// 	}else{
+	// 	// 		alert('手机号为空');
+	// 	// 	};
+	// 	// };
+	// };
+		
+	
+	
+</script>
+</body>
+</html>

@@ -9,8 +9,6 @@ module.exports = class extends think.Controller {
     }
   }
   __after(){
-  	// console.log(this.get(name))
-    this.body +='name:'+this.get('name')
   }
   __call(){
   	console.log('error call')
